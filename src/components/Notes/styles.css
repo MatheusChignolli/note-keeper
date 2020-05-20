@@ -1,0 +1,38 @@
+.note-parent {
+  padding: 20px;
+}
+
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 100%;
+}
+
+.note h1 {
+  font-size: 20px;
+}
+
+.content-body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media(max-width: 1480px) {
+  .content-body {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(max-width: 991px) {
+  .content-body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 768px) {
+  .content-body {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
