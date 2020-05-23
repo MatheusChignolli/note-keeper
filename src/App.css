@@ -5,9 +5,7 @@
 }
 
 html {
+  background-color: #eee;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   font-family: "Montserrat", sans-serif;
-}
-
-body {
-  background: #eee;
 }

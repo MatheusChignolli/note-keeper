@@ -1,50 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 
 import Note from './Note';
-
-const Notes = [
-  {
-    title: "Lorem ipsum dolor sit amet",
-    content: "Cras eget maximus leo. In volutpat lacinia dictum. Nulla aliquet scelerisque turpis, non tempor sem venenatis eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque facilisis tincidunt mi.",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    content: "Cras eget maximus leo. In volutpat lacinia dictum. Nulla aliquet scelerisque turpis, non tempor sem venenatis eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque facilisis tincidunt mi.",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    content: "Cras eget maximus leo. In volutpat lacinia dictum. Nulla aliquet scelerisque turpis, non tempor sem venenatis eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque facilisis tincidunt mi.",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    content: "Cras eget maximus leo. In volutpat lacinia dictum. Nulla aliquet scelerisque turpis, non tempor sem venenatis eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque facilisis tincidunt mi.",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    content: "Cras eget maximus leo. In volutpat lacinia dictum. Nulla aliquet scelerisque turpis, non tempor sem venenatis eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque facilisis tincidunt mi.",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    content: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque facilisis tincidunt mi.",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    content: "Cras eget maximus leo. In volutpat lacinia dictum. Nulla aliquet scelerisque turpis, non tempor sem venenatis eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque facilisis tincidunt mi.",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    content: "Cras eget maximus leo. non tempor sem venenatis eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque facilisis tincidunt mi.",
-  },
-]
+import Input from '../Input';
 
 function App() {
+
+  const [notes, setNotes] = useState([]);
+
+  function addNote(obj) {
+    setNotes([...notes, obj])
+    console.log(notes);
+  }
+
+  function deleNote(id) {
+
+    var newNotes = [];
+
+    notes.forEach((obj, i) => {
+      if(i !== id) {
+        newNotes.push(obj);  
+      }
+    });
+
+    setNotes(newNotes)
+  }
+
   return (
     <>
+      <div className="input-body">
+        <Input addItem={addNote} />
+      </div>
       <div className={"content-body"}>
         {
-          Notes.map((obj, i) => 
-            <Note h1={obj.title} content={obj.content} />
+          notes.map((obj, i) => 
+            <Note deleteItem={deleNote} id={i} key={`note-${i}`} h1={obj.nTitle} content={obj.nText} />
           )
         }
       </div>   

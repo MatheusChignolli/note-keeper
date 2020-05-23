@@ -6,17 +6,52 @@
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
+  padding: 20px;
+  position: relative;
   width: 100%;
+}
+
+.note h1, .note p {
+  font-family: "McLaren", cursive;
 }
 
 .note h1 {
   font-size: 20px;
+  margin-bottom: 15px;
+  width: 80%;
+}
+
+.note span {
+  background: #f5ba13;
+  border-radius: 100%;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  height: 54px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  transition: box-shadow 0.3s;
+  right: 10px;
+  width: 54px;
+}
+
+.note span:hover {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.3);
+}
+
+.note svg {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: -10px;
 }
 
 .content-body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.input-body {
+  padding: 20px;
 }
 
 @media(max-width: 1480px) {
